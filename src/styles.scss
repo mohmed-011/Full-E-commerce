@@ -1,1 +1,139 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans+Expanded:wght@300&display=swap");
+
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+@import 'ngx-toastr/toastr';
+
+:root {
+  --d-main-color: #1a56db;
+  --d-light-color:#1f2937;
+  --d-text-color: #9ca3af;
+  // --main-color: #0aad0a;
+  //   --light-color: #f0f3f2;
+  --shadow: rgba(145, 158, 171, 0.2) 0px 2px 4px -1px,
+    rgba(145, 158, 171, 0.14) 0px 4px 5px 0px,
+    rgba(145, 158, 171, 0.12) 0px 1px 10px 0px;
+  --font-family: "Encode Sans Expanded", sans-serif;
+  --rating-color: #ffc908;
+
+}
+
+body {
+  font-family: var(--font-family) !important;
+  transition: all 0.5s;
+
+
+}
+
+
+.nav-link {
+  transition: unset !important;
+}
+
+.active-link {
+
+  background-color: var(--d-main-color) !important;
+  color: white !important;
+  border-radius: 5px;
+}
+
+.rating-color {
+  color: var(--rating-color);
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
+
+a{
+  text-decoration: none;
+}
+
+
+.product {
+  border-radius: 5px;
+  border: solid 1px var(--d-main-color);
+  transition: all 0.5s;
+  overflow: hidden;
+
+}
+
+.product:hover {
+  box-shadow: 0 0 19px var(--d-main-color);
+  transform: scale(1.03);
+}
+
+.font-sm {
+  font-size: 12px;
+}
+
+// .text-main {
+//   color: var(--d-main-color);
+// }
+.text-main {
+  color: var(--d-text-color);
+}
+
+.bg-main {
+  background-color: var(--d-main-color) !important;
+}
+
+.bg-main-light {
+  background-color: var(--d-light-color) !important;
+}
+
+.btn-main {
+  background-color: var(--d-main-color);
+  padding: 7px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+.btn-main2 {
+  background-color: var(--d-main-color);
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+  transform: translateX(190%);
+}
+.btn-main3 {
+  background-color: var(--d-main-color);
+  padding: 5px 15px;
+
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.btn-main:disabled {
+  cursor: not-allowed;
+  background-color: #ccc;
+}
+
+.btn-main:disabled:hover {
+  background-color: #ccc;
+}
+
+.btn-main:hover , .btn-main2:hover ,
+.btn-main3:hover {
+  background-color: #4574db;
+}
+
+
+.product:hover .btn-main2 {
+transform: translateX(8%);
+}

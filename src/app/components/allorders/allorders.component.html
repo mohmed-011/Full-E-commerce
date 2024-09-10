@@ -1,0 +1,47 @@
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">All Orders </h1>
+
+<div class="flex flex-wrap justify-center  mb-6">
+@for (order of orderList; track order._id) {
+   <div class="xl:w-[45%] zero:w-full p-5 ">
+    <div  class="product p-5  bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="flex justify-between">
+      <p class="text-lg text-center text-black dark:text-[#9ca3af]">#{{order.id}}</p>
+      <p class="text-lg text-center text-black dark:text-[#9ca3af]"><i class="pe-3 fa-solid fa-calendar-days"></i> {{order.createdAt.substring(0,10)}}</p>
+      </div>
+      <hr class="w-[70%] mx-auto my-3">
+      <div class="flex justify-between mb-2">
+        <p class="text-lg text-center text-black dark:text-[#9ca3af]"><i class="pe-3 fa-solid fa-dollar-sign"></i> {{order.totalOrderPrice}}</p>
+        <p class="text-lg text-center text-black dark:text-[#9ca3af]"><i class="pe-3 fa-solid fa-phone"></i>{{order.shippingAddress.phone}}</p>
+      </div>
+       <div class="flex justify-between">
+        <p class="text-lg text-center text-black dark:text-[#9ca3af]"><i class="pe-3 fa-solid fa-location-dot"></i>{{order.shippingAddress.city}}</p>
+        <p class="text-lg text-center text-black dark:text-[#9ca3af]"><i class="pe-3 fa-solid fa-user"></i>{{order.user.name}}</p>
+      </div>
+      <hr class="w-[70%] mx-auto my-3">
+      <h2 class="mb-3 text-lg font-medium text-black dark:text-white">order items</h2>
+      <owl-carousel-o [options]="customOptionsOrder">
+          @for (item of order.cartItems; track item._id) {
+          <ng-template carouselSlide>
+            <div class="flex flex-col justify-center items-center ">
+              <div class="w-24 ">
+                <img [src]="item.product.imageCover"  class="w-full rounded-md" [alt]="item.product.title|limit:3">
+              </div>
+              <div class="ps-4 text-center">
+                <p class="text-xl font-medium text-black dark:text-[#9ca3af]">{{item.product.title | limit:2}}</p>
+                <p class="  text-black dark:text-[#9ca3af]"> ${{item.price}}</p>
+                <p class="py-2 text-black dark:text-[#9ca3af]">count : {{item.count}}</p>
+              </div>
+            </div>
+          </ng-template>
+          }
+      </owl-carousel-o>
+      <hr class="w-[70%] mx-auto my-5">
+      <div class="flex justify-between">
+      <span class="bg-green-800 text-green-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Paid</span>
+      <span class="bg-red-800 text-red-200 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Not Deliveryed</span>
+      </div>
+    </div>
+   </div>
+}
+
+</div>

@@ -1,0 +1,78 @@
+
+@if (isEmpty) {
+    <div class="md:w-[20%] sm:w-[30%] zero:w-[40%] mx-auto mt-7">
+      <img src="./assets/images/wishlist.svg" class="w-full" alt="wishlist logo">
+    </div>
+    <h1
+  class="text-2xl  transition-all duration-[0.5s] text-black dark:text-white hover:text-white p-4 w-fit mx-auto  relative mb-5 before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s] after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%] after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full hover:before:w-full hover:after:h-[75%] hover:before:h-[75%] hover:after:w-full"
+>
+  your Wish List Empty
+</h1>
+  }@else {
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Wish list</h1>
+<div class="flex flex-wrap justify-center px-2">
+  @for (item of productWishList  ; track item._id) {
+  <div class="xl:w-[20%] lg:w-[25%] md:w-4/12 sm:w-6/12 zero:w-full p-2">
+    <div  class="product mx-auto relative max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <a (click)="removrFromWish(item.id)" class="absolute top-[70%] end-5 cursor-pointer text-black dark:text-white">
+        <i class="fa-solid fa-heart-crack"></i>
+      </a>
+      <a [routerLink]="['/detalis',item.id]" class="p-5 block rounded-full overflow-hidden">
+        <img
+
+          [src]="item.imageCover"
+          [alt]="item.title|limit:3"
+        />
+      </a>
+      <div class="px-5 pb-5">
+        <div [routerLink]="['/detalis',item.id]">
+          <a>
+          <h5
+            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+          >
+            {{ item.title | limit:2 }}
+          </h5>
+        </a>
+        <a>
+          <h5 class="py-1 font-semibold tracking-tight text-main">
+            {{ item.category.name }}
+          </h5>
+        </a>
+        <div class="flex items-center mt-2.5 mb-5">
+          <div class="flex items-center space-x-1 rtl:space-x-reverse">
+            @for (num of [1,2,3,4,5].slice(0,item.ratingsAverage); track $index)
+            {
+            <svg
+              class="w-4 h-4 text-yellow-300"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20"
+            >
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+              />
+            </svg>
+            } @if (item.ratingsAverage %1 !== 0) {
+            <i class="fa-solid fa-star-half-stroke w-4 h-4 text-yellow-300"></i>
+            }
+          </div>
+          <span
+            class="bg-emerald-200 text-emerald-900 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-emerald-200 dark:text-emerald-800 ms-3"
+            >{{ item.ratingsAverage }}</span
+          >
+        </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <span [routerLink]="['/detalis',item.id]" class="text-xl font-bold text-gray-900 dark:text-white"
+            >${{ item.price  }} </span
+          >
+          <button  class="btn-main2">Add to cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  }
+</div>
+}

@@ -1,0 +1,105 @@
+
+<section class="">
+
+<owl-carousel-o [options]="customOptionsMain">
+    <ng-template carouselSlide>
+      <div class="">
+        <img src="./assets/images/home/1.jpg" class="w-full" alt="home slider photo">
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div>
+        <img src="./assets/images/home/2.jpg" class="w-full" alt="home slider photo">
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div>
+        <img src="./assets/images/home/4.jpg" class="w-full" alt="home slider photo">
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div>
+        <img src="./assets/images/home/5.jpg" class="w-full" alt="home slider photo">
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div>
+        <img src="./assets/images/home/6.jpg" class="w-full" alt="home slider photo">
+      </div>
+    </ng-template>
+
+
+  </owl-carousel-o>
+</section>
+<!-- *********************** -->
+<section class="">
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white  p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Popular categories</h1>
+<owl-carousel-o [options]="customOptionsCat">
+  @for (cat of categoryList; track cat._id) {
+  <ng-template carouselSlide>
+    <div [routerLink]="['/cdetalis',cat._id]" class="text-center cursor-pointer">
+      <img [src]="cat.image" [alt]="cat.name"  class="w-full h-[200px] rounded-md" />
+      <h3 class="text-lg pt-2 font-[600]  text-black dark:text-[#9ca3af]">{{ cat.name }}</h3>
+    </div>
+  </ng-template>
+  }
+</owl-carousel-o>
+</section>
+<!-- *********************** -->
+<section>
+
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white  p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Popular Product</h1>
+<div class="mb-5 mx-auto lg:w-[50%] zero:w-[80%]">
+<label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+    <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+            </svg>
+        </div>
+        <input [(ngModel)]="text" type="search" id="default-search" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Mockups, Logos..." required />
+        <button type="submit" class="text-white absolute end-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search</button>
+    </div>
+
+    </div>
+<div class="flex flex-wrap justify-center px-2">
+  @for ( item of productList.slice(0,12) | search :text ; track item._id) {
+
+
+<div class="xl:w-[20%] lg:w-[25%] md:w-4/12 sm:w-6/12 zero:w-full p-2">
+  <app-card [item]="item"></app-card>
+</div>
+  }
+</div>
+</section>
+<!-- *********************** -->
+<section>
+
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Salse</h1>
+
+<div class="flex flex-wrap justify-center px-2">
+
+  @for (item of productList.slice(0,18).reverse()| search :text ; track item._id) {
+@if (item.priceAfterDiscount) {
+  <div class="xl:w-[20%] lg:w-[25%] md:w-4/12 sm:w-6/12 zero:w-full p-2">
+  <app-card [item]="item"></app-card>
+</div>
+}
+  }
+</div>
+</section>
+<!-- *********************** -->
+<section class="mb-4">
+<h1 class="text-3xl transition-all duration-[0.5s] text-black dark:text-white hover:text-white p-4 w-fit mx-auto mt-10 relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Popular Brands</h1>
+<owl-carousel-o [options]="customOptionsBrand">
+  @for (brand of brandList.slice(0,15); track brand._id) {
+  <ng-template carouselSlide>
+    <div [routerLink]="['/bdetalis',brand._id]" class="text-center cursor-pointer">
+      <img [src]="brand.image" [alt]="brand.name"  class="w-full dark:border-0 border-[0.5px] rounded-md" />
+      <h3 class="text-lg pt-2 font-[600] text-black dark:text-[#9ca3af]">{{ brand.name }}</h3>
+    </div>
+  </ng-template>
+  }
+</owl-carousel-o>
+</section>
+

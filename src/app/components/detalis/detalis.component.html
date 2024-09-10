@@ -1,0 +1,119 @@
+
+@if (detalisProduct !==null) {
+<div class="px-10 flex flex-wrap">
+  <div class="lg:w-[35%] md:w-[60%]  zero:w-full mx-auto  sm:p-16">
+    <swiper-container
+      style="
+        --swiper-navigation-color: #030303;
+        --swiper-pagination-color: #333;
+        --swiper-background-color: #33333300;
+      "
+      class="mySwiper"
+      thumbs-swiper=".mySwiper2"
+      loop="false"
+      navigation="true"
+      space-between="10"
+    >
+      @for (item of detalisProduct.images; track item) {
+      <swiper-slide class="rounded-xl overflow-hidden">
+
+          <img [src]="item" [alt]="detalisProduct.title|limit:3" class="rounded-lg w-full" />
+
+
+      </swiper-slide>
+      }
+    </swiper-container>
+
+    <swiper-container
+      class="mySwiper2"
+      loop="false"
+      space-between="10"
+      slides-per-view="3"
+      slides-per-group="1"
+      free-mode="true"
+      watch-slides-progress="true"
+    >
+      @for (item of detalisProduct.images; track item) {
+      <swiper-slide class="rounded-xl overflow-hidden">
+        <img [src]="item" [alt]="detalisProduct.title|limit:3" class="rounded-lg" />
+      </swiper-slide>
+      }
+    </swiper-container>
+  </div>
+  <div class="md:w-[65%] mx-auto lg:pt-16">
+    <h2 class="text-2xl font-semibold text-black dark:text-white">{{ detalisProduct.title }}</h2>
+    <p class="text-black dark:text-[#9ca3af] text-lg font-semibold  py-3">{{ detalisProduct.description }}</p>
+    <p class="text-[#1a56db] font-semibold">{{ detalisProduct.category.name }}</p>
+    <div class="flex items-center mt-5 mb-5">
+      <div class="flex items-center space-x-1 rtl:space-x-reverse">
+        @for (num of [1,2,3,4,5].slice(0,detalisProduct.ratingsAverage); track
+        $index) {
+        <svg
+          class="w-4 h-4 text-yellow-300"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        } @if (detalisProduct.ratingsAverage %1 !== 0) {
+        <i class="fa-solid fa-star-half-stroke w-4 h-4 text-yellow-300"></i>
+        }
+
+      </div>
+      <span
+        class="bg-emerald-200 text-emerald-900 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-emerald-200 dark:text-emerald-800 ms-3"
+        >{{ detalisProduct.ratingsAverage }}</span
+      >
+    </div>
+    <div class="flex items-center md:flex-row zero:flex-col justify-between ">
+      @if (detalisProduct.priceAfterDiscount) {
+      <div class="flex w-fit">
+        <p class=" pe-5 text-2xl font-bold text-red-500 line-through">{{ detalisProduct.price|currency:'USD'  }} </p>
+        <p class="text-2xl font-bold text-emerald-500">{{ detalisProduct.priceAfterDiscount|currency:'USD'  }} </p>
+      </div>
+      }
+      @else {
+      <p class="text-2xl font-bold text-black dark:text-white ">{{ detalisProduct.price|currency:'USD' }} </p>
+      }
+      <div class="flex space-x-5 zero:mt-4 md:mt-0">
+
+        <button (click)="addToWish(detalisProduct._id)" class="px-[15px] py-[5px] rounded-lg text-white bg-red-500 shadow-md hover:bg-[#fa5858] transition-all shadow-red-500"> <i class=" text-xl fa-regular fa-heart pe-2"></i> Add Wishlist</button>
+        <button (click)="addCart(detalisProduct._id)" class="btn-main3 shadow-md shadow-[#4574db]"> <i class="fa-solid fa-cart-shopping pe-2"></i> Add to cart</button>
+      </div>
+    </div>
+    <hr class="my-7" />
+    <!-- <h2 class="text-2xl font-semibold pb-3 text-black dark:text-white">Brand Details</h2> -->
+    <div class="flex flex-wrap justify-between items-center">
+      <div class="border rounded-lg shadow w-44 overflow-hidden">
+        <img [src]="detalisProduct.brand.image" [alt]="detalisProduct.brand.name">
+      </div>
+      <div class="text-center">
+        <p class="text-xl font-semibold text-black dark:text-[#9ca3af]"><i class="fa-solid fa-boxes-stacked text-[#f5accc] text-2xl pe-3"></i> {{detalisProduct.quantity}}</p>
+        <P class="text-xl font-semibold text-black dark:text-[#9ca3af]" >in stock</P>
+      </div>
+      <div class="text-center">
+        <p class="flex text-xl font-semibold text-black dark:text-[#9ca3af]"> <img src="./assets/images/sold.svg" class="w-[35px] me-3" alt="">  {{detalisProduct.sold}}</p>
+        <p  class="flex text-xl font-semibold text-black dark:text-[#9ca3af] text-center">sold times</p>
+        </div>
+    </div>
+  </div>
+</div>
+}
+<h1 class="text-3xl
+transition-all duration-[0.5s] text-black dark:text-white hover:text-white  p-4 w-fit mx-auto  relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-6 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-6 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">Related Products</h1>
+<owl-carousel-o [options]="customOptionsRela"  >
+  @for (item of ProductListC ; track item.id) {
+  <ng-template carouselSlide>
+    <div class=" p-2 ">
+
+  <app-card [item]="item"></app-card>
+
+  </div>
+
+</ng-template>
+  }
+</owl-carousel-o>

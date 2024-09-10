@@ -1,0 +1,17 @@
+<div class="product  w-fit mx-auto m-5 flex flex-col items-center ">
+<div class=" m-4">
+  <img [src]="CatDetails.image" class="w-full h-[200px] rounded-lg" [alt]="CatDetails.name">
+</div>
+<div class="">
+  <h1 class="text-xl  p-4 w-fit mx-auto  relative mb-5   before:w-8 before:h-8 before:bg-[#1a56db] before:z-[-1] before:absolute before:-left-14 before:translate-y-[-50%] before:top-[50%] before:rounded-full before:transition-all before:duration-[0.5s]          after:z-[-1] after:transition-all after:duration-[0.5s] after:translate-y-[-50%]  after:w-8 after:h-8 after:bg-[#1a56db] after:absolute after:-right-14 after:top-[50%] after:rounded-full  hover:before:w-full hover:after:h-[75%]  hover:before:h-[75%] hover:after:w-full ">{{CatDetails.name}}</h1>
+</div>
+</div>
+<div class="flex flex-wrap justify-center px-2 mb-8">
+  @for (item of productList.slice(0,12)  ; track item._id) {
+
+    <div class="xl:w-[20%] md:w-4/12 p-2">
+  <app-card [item]="item"></app-card>
+</div>
+
+  }
+</div>

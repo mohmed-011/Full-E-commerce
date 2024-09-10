@@ -1,0 +1,125 @@
+<nav class="dark:bg-main-light bg-white border-b-[0.1px] z-50 dark:border-gray-600 fixed top-0 end-0 start-0 dark:bg-[#1f2937]">
+  <div
+    class="flex max-md:flex-wrap items-center justify-between w-full py-4 mx-auto container"
+  >
+    <a class="sm:flex hidden   items-center md:me-4 dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+      href="https://www.linkedin.com/in/mohamed-faragallah-613b32295/"
+    >
+      <!-- <img
+        src="https://flowbite.com/docs/images/logo.svg"
+        class=""
+        alt="Logo Faragallah store"
+      /> -->
+      <a class="button" data-text="Awesome">
+    <span class="actual-text">&nbsp;Faragallah&nbsp;</span>
+    <span aria-hidden="true" class="hover-text">&nbsp;Faragallah&nbsp;</span>
+</a>
+    </a>
+    <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
+        <span class="sr-only">Open main menu</span>
+        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+        </svg>
+    </button>
+    <div class="hidden w-full xl:flex xl:items-center" id="navbar-default">
+      <ul
+        class="font-medium ms-auto flex flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-4 rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a
+            routerLink="home"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+            aria-current="page"
+            >Home</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="products"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            >Products</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="cart"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] text-xl relative dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            ><i class="fa-solid fa-cart-shopping "></i>
+            <span class="absolute -top-1 -end-1 text-[12px] rounded-full size-6 border text-white bg-red-700 flex justify-center items-center ">{{countNumber()}}</span>
+            </a
+          >
+
+        </li>
+        <li>
+          <a
+            routerLink="allorders"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            >Orders</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="wishlist"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] text-xl relative dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            ><i class="fa-regular fa-heart z-10 "></i>
+            <span class="absolute -top-1 -end-1 text-[12px] rounded-full size-6 border text-white bg-red-700 flex justify-center items-center ">{{wishNumber()}}</span></a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="categories"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            >Categories</a
+          >
+        </li>
+        <li>
+          <a
+            routerLink="brands"
+            routerLinkActive="active-link"
+            class="block py-1.5 px-3 font-[600] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+
+            >Brands</a
+          >
+        </li>
+
+      </ul>
+      <ul
+        class="font-medium ms-auto flex py-4 md:p-0 mt-4 border rounded-lg md:flex-row rtl:space-x-reverse md:mt-0 md:border-0"
+      >
+        <li>
+          <a class="block py-2 px-2 font-[700] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+            ><i class="fa-brands fa-x-twitter"></i></a>
+        </li>
+        <li>
+          <a class="block py-2 px-2 font-[700] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+            ><i class="fa-brands fa-linkedin"></i></a>
+        </li>
+        <li>
+          <a class="block py-2 px-2 font-[700] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+            ><i class="fa-brands fa-square-instagram"></i></a>
+        </li>
+        <li>
+          <a class="block py-2 px-2 font-[700] dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"
+            ><i class="fa-brands fa-facebook"></i
+          ></a>
+        </li>
+        <li>
+          <a class="block ms-2 py-2 px-2 text-md font-[800] cursor-pointer dark:hover:text-white text-black dark:text-[#9ca3af] hover:text-[#1a56db]"  (click)="hmada()"
+            >Sing out <i class=" ps-1 fa-solid fa-arrow-right-from-bracket"></i></a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
