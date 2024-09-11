@@ -137,3 +137,23 @@ a{
 .product:hover .btn-main2 {
 transform: translateX(8%);
 }
+
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:#507dde ;
+  border-radius: 5px;
+  transition: all 0.9s;
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color:var(--d-main-color);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--main-color);
+  box-shadow: 0 0 1px #ddd inset;
+}
